@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>SQL Documentation</header>
+      <ul>
+        <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+        <li>
+          <a class="nav-link" href="#What_you_should_already_know"
+            >What you should already know</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#SQL_and_Other_Query_Languages"
+            >SQL and Other Query Languages</a
+          >
+        </li>
+        <li><a class="nav-link" href="#First_Query">First Query</a></li>
+        <li><a class="nav-link" href="#Variables">Variables</a></li>
+        <li>
+          <a class="nav-link" href="#Data_Types"
+            >Data Types</a
+          >
+        </li>
+        <li><a class="nav-link" href="#Control_Structures">Control Structures</a></li>
+        <li>
+          <a class="nav-link" href="#Functions">Functions</a>
+        </li>
+        <li><a class="nav-link" href="#Reference">Reference</a></li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="Introduction">
+        <header>Introduction</header>
+        <article>
+          <p>
+            SQL (Structured Query Language) is a domain-specific language used in programming and designed for managing data held   in a relational database management system (RDBMS). It is particularly useful for handling structured data where there are relations between different entities and variables.
+          </p>
+
+          <p>
+            SQL contains a standard library of commands, such as SELECT, INSERT, UPDATE, DELETE, and a core set of language elements such as operators, control structures, and statements. Core SQL can be extended for a variety of purposes by supplementing it with additional commands; for example:
+          </p>
+          <ul>
+            <li>
+              Data Query Language (DQL): Commands like SELECT are used to fetch data from a database.
+            </li>
+            <li>
+              Data Definition Language (DDL): Commands like CREATE, ALTER, and DROP are used to define or alter database schema.
+            </li>
+            <li>
+              Data Control Language (DCL): Commands like GRANT and REVOKE are used to control access to data.
+            </li>
+            <li>
+              Data Manipulation Language (DML): Commands like INSERT, UPDATE, and DELETE are used to manipulate data within schema objects.
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section class="main-section" id="What_you_should_already_know">
+        <header>What you should already know</header>
+        <article>
+          <p>This guide assumes you have the following basic background:</p>
+
+          <ul>
+            <li>
+              A general understanding of databases and their role in storing and managing data.
+            </li>
+            <li>Basic familiarity with programming concepts and terminology.</li>
+            <li>
+              Some experience with data manipulation or querying languages. If you are new to SQL, try one of the introductory tutorials linked on the main page about SQL.
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section class="main-section" id="SQL_and_Other_Query_Languages">
+        <header>SQL and Other Query Languages</header>
+        <article>
+          <p>
+            SQL is often compared to other data manipulation and query languages but stands out due to its widespread use and standardization. While other languages like NoSQL are used for specific use cases such as handling unstructured data, SQL remains the preferred choice for relational databases because of its robust query capabilities and well-defined standards.
+          </p>
+
+          <p>
+            In contrast to some other query languages that might require different methods for different types of data stores, SQL provides a unified language for managing relational data. It supports operations like data querying, schema creation and modification, data access control, and data manipulation within a single, consistent framework.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="First_Query">
+        <header>First Query</header>
+        <article>
+         To get started with writing SQL, you can execute your first "Hello World" SQL query by connecting to your database and running the following command to fetch all data from a table named 'users':
+          <code> 
+            SELECT * FROM users;
+          </code>
+
+          This command retrieves all columns from all rows in the 'users' table.
+        </article>
+      </section>
+      <section class="main-section" id="Variables">
+        <header>Variables</header>
+        <p>
+          SQL uses variables to store temporary data during the execution of a SQL query or procedure. Variables are often used in SQL scripts and stored procedures to store data that can be reused multiple times.
+        </p>
+        <h3>Declaring Variables</h3>
+        <p>
+          You can declare a variable in SQL using the DECLARE keyword. For example:
+        <code>
+          DECLARE @myVariable INT;
+          SET @myVariable = 10;
+        </code>
+          In this example, a variable named @myVariable of type INT is declared and then set to a value of 10.
+        </p>
+      </section>
+      <section class="main-section" id="Data_Types">
+        <header>Data Types</header>
+        <article>
+          SQL supports a variety of data types, which can be categorized into several groups:
+          <ul>
+            <li><strong>Numeric types:</strong> INT, FLOAT, DECIMAL, etc.</li>
+            <li><strong>Character types:</strong> CHAR, VARCHAR, TEXT, etc.</li>
+            <li><strong>Date and time types:</strong> DATE, TIME, DATETIME, TIMESTAMP, etc.</li>
+            <li><strong>Binary types:</strong> BINARY, VARBINARY, BLOB, etc.</li>
+            <li><strong>Boolean type:</strong> BIT</li>
+          </ul>
+          <p>
+            These data types enable you to define the kind of data that can be stored in each column of a table, ensuring data integrity and efficient storage.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Control_Structures">
+        <header>Control Structures</header>
+        <article>
+          <p>
+            SQL provides various control structures to manage the flow of execution within scripts and stored procedures, including conditional statements and loops.
+          </p>
+          <h3>IF...ELSE Statement</h3>
+          <p>
+            The IF...ELSE statement is used to execute a set of SQL statements based on a condition. The syntax is as follows:
+          </p>
+          <code>IF condition
+BEGIN
+    -- statements to execute if condition is true
+END
+ELSE
+BEGIN
+    -- statements to execute if condition is false
+END</code>
+          <p>
+            Example:
+          </p>
+
+          <code
+            >IF @myVariable = 10
+BEGIN
+    PRINT 'Variable is 10';
+END
+ELSE
+BEGIN
+    PRINT 'Variable is not 10';
+END</code
+          >
+          <h3>WHILE Statement</h3>
+          <p>
+            The WHILE statement is used to repeatedly execute a block of SQL statements as long as a specified condition is true. The syntax is as follows:
+          </p>
+          <code>WHILE condition
+BEGIN
+    -- statements to execute as long as condition is true
+END</code>
+          <p>
+            Example:
+          </p>
+
+          <code
+            >DECLARE @counter INT = 0;
+WHILE @counter < 5
+BEGIN
+    PRINT 'Counter is ' + CAST(@counter AS NVARCHAR(10));
+    SET @counter = @counter + 1;
+END</code
+          >
+        </article>
+      </section>
+      <section class="main-section" id="Functions">
+        <header>Functions</header>
+        <article>
+          <p>
+            SQL allows you to create user-defined functions to encapsulate reusable logic. A function in SQL is defined with the CREATE FUNCTION statement, specifying the function name, input parameters, return type, and the function body.
+          </p>
+
+          <p>
+            Example of a simple scalar function that returns the square of a number:
+          </p>
+          <code>
+            CREATE FUNCTION dbo.Square (@number INT)
+RETURNS INT
+AS
+BEGIN
+    RETURN @number * @number;
+END;
+          </code>
+          <p>
+            To call this function:
+          </p>
+          <code>
+            SELECT dbo.Square(5);
+          </code>
+        </article>
+      </section>
+      
+      <section class="main-section" id="Reference">
+        <header>Reference</header>
+        <article>
+          <ul>
+            <li>
+              All the documentation in this page is based on standard SQL principles and practices, and additional references can be found on official SQL documentation and educational resources.
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
